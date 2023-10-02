@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header"> Hello </h1>
+        <table id="main-table">
+            <tr>
+                <th>Tittle</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read</th>
+            </tr>
+        </table>
+        <form id="add-book-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" required>
+
+            <label for="pages">Pages:</label>
+            <input type="text" id="pages" required>
+
+            <label for="checkbox">Read:</label>
+            <input type="checkbox" id="checkbox" required>
+            <button type="submit" id="add-button">Add Book</button>
+        </form>
+        <form action="" id="remove-book">
+            <label for="rem-title">Delete Book</label>
+            <input type="text" id="rem-title" required>
+            <button type="submit" id="rem-button">Remove Book</button>
+        </form>
+    </div>
+    <button id="refresh">Refresh</button>
+</body>
+</html>
