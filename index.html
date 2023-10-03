@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Based Document Record System</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1 class="header"> Hello </h1>
+        <h1 class="header"> Web Based Document Record System </h1>
         <table id="main-table">
             <tr>
                 <th>Tittle</th>
@@ -20,24 +20,29 @@
         </table>
         <form id="add-book-form">
             <label for="title">Title:</label>
-            <input type="text" id="title" required>
+            <input type="text" id="title" placeholder="Title of the book" required>
 
             <label for="author">Author:</label>
-            <input type="text" id="author" required>
+            <input type="text" id="author" placeholder="Book Author" required>
 
             <label for="pages">Pages:</label>
-            <input type="text" id="pages" required>
-
-            <label for="checkbox">Read:</label>
-            <input type="checkbox" id="checkbox" required>
+            <input type="number" id="pages" minlength="1" maxlength="9999" 
+             placeholder="#" required>
+            <div>
+                <label for="checkbox">Read:</label>
+                <input type="checkbox" id="checkbox" required>
+            </div>
             <button type="submit" id="add-button">Add Book</button>
         </form>
         <form action="" id="remove-book">
-            <label for="rem-title">Delete Book</label>
-            <input type="text" id="rem-title" required>
+            <label for="rem-title">Delete Book :</label>
+            <input type="text" id="rem-title" placeholder="Title of the book" required>
             <button type="submit" id="rem-button">Remove Book</button>
         </form>
+        <div class="btn-refresh">
+            <button id="refresh">Refresh</button>
+        </div>
     </div>
-    <button id="refresh">Refresh</button>
+    
 </body>
 </html>
