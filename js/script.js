@@ -10,7 +10,7 @@ class Book{
     }
 }
 
-let hobbit = new Book("The Hobbit","J.R.R Tolkien", 295, true);
+let hobbit = new Book("The Hobbit","J.R.R Tolkien", 295, false);
 myLibrary.push(hobbit);
 
 function addBook(newBook){
@@ -18,7 +18,7 @@ function addBook(newBook){
      const existingBook = myLibrary.find(book => book.title === newBook.title && book.author === newBook.author);
 
      if (existingBook){
-         console.log(newBook.title + " by " + newBook.author + " Already exists");
+         alert(newBook.title + " by " + newBook.author + " Already exists");
          return;
      } else {
          myLibrary.push(newBook);
@@ -32,14 +32,14 @@ function delBook(event){
     let removeBook = removeBookInput.value;
 
     const existingBook = myLibrary.findIndex(book => book.title === removeBook);
-    console.log(existingBook);
+
     if (existingBook !== -1){
         myLibrary.splice(existingBook,1);
         console.log(removeBook + `removed from the library`);
         populateTable();
         removeBookInput.value = '';
     } else{
-        console.log(removeBook + " does not exists");
+        alert(removeBook + " does not exists");
         removeBookInput.value = '';
         return;
     }
@@ -59,7 +59,7 @@ function createBook(event){
     let pages = pagesInput.value;
     let read = checkboxInput.checked;
 
-    title = new Book (title,author,pages,checkbox);
+    title = new Book (title,author,pages,read);
     addBook(title);
 
     titleInput.value = '';
@@ -79,6 +79,7 @@ function populateTable(){
 
     myLibrary.forEach((book)=>{
         const row = table.insertRow(-1);
+        row.classList.add('table-row');
 
         const titleCell = row.insertCell(0);
         const authorCell = row.insertCell(1);
@@ -89,7 +90,14 @@ function populateTable(){
         checkbox.type ='checkbox';
         checkbox.checked = book.read;
 
+        if(checkbox.checked){
+            row.classList.add('checked-row');
+        }
 
+        checkbox.addEventListener('click', () =>{
+            row.classList.toggle('checked-row');
+            book.read = checkbox.checked;
+        })
 
         titleCell.textContent = book.title;
         authorCell.textContent = book.author;
